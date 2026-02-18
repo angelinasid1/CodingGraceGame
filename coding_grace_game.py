@@ -440,6 +440,29 @@ def green_magic_room(player_info_arg):
         print("The magician waves his hand and you are whisked away...\n")
         return "flee"
 
+def purple_reflection_room(player_info_arg):
+    ""The Purple Room: a quiet room for reflection and healing."" 
+    print("\nYou have entered the Purple Room.")
+    print("The air is calm. The walls glow softly.")
+    
+#Update player status 
+player_info_arg["location"] = "Purple Room" 
+healing =10 
+player_info_arg["health"] += healing
+print(f"You reflect on your journey and regain {healing} health.")
+player_info_arg["choices"].append("Purple Room")
+show_player_info(player_info_arg)
+choice = input("Do you (rest) or (leave)? >").lower()
+if choice == "rest":
+    print("You feel peaceful, but nothing else happens.")
+else:
+    print("You leave the Purple Room.")
+
+return player_info_arg 
+
+    
+
+
 
 # ===========================================================================
 # CONTROL FUNCTIONS
@@ -516,6 +539,8 @@ def start_new_adventure(player_info_arg):
             room_result = blissful_ignorance_of_illusion_room(player_info_arg)
         elif door.startswith("green"):
             room_result = green_magic_room(player_info_arg)
+        elif door.startswith("purple"):
+            room_result=purple_reflection_room(player_info_arg)
         else:
             print("Sorry, it's either 'red', 'blue', or 'green' as the "
                   "answer. You're the weakest link, goodbye!")
