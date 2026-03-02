@@ -542,7 +542,7 @@ def start_new_adventure(player_info_arg):
         elif door.startswith("purple"):
             room_result=purple_reflection_room(player_info_arg)
         else:
-            print("Sorry, it's either 'red', 'blue', or 'green' as the "
+            print("Sorry, it's either 'red', 'blue','green' or 'purple' as the "
                   "answer. You're the weakest link, goodbye!")
             # Continue the loop so the player can try again.
             continue
